@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Qi Zou" />
+  <meta name="dcterms.date" content="2016-08-16" />
+  <title>Rstudio Knitr 包分享</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="play_files/reveal.js-3.3.0/css/reveal.css"/>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #2a211c; color: #bdae9d; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #2a211c; color: #bdae9d; border-right: 1px solid #bdae9d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #bdae9d; background-color: #2a211c; }
+code > span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code > span.dt { text-decoration: underline; } /* DataType */
+code > span.dv { color: #44aa43; } /* DecVal */
+code > span.bn { color: #44aa43; } /* BaseN */
+code > span.fl { color: #44aa43; } /* Float */
+code > span.ch { color: #049b0a; } /* Char */
+code > span.st { color: #049b0a; } /* String */
+code > span.co { color: #0066ff; font-style: italic; } /* Comment */
+code > span.al { color: #ffff00; } /* Alert */
+code > span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code > span.er { color: #ffff00; font-weight: bold; } /* Error */
+code > span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #049b0a; } /* SpecialChar */
+code > span.vs { color: #049b0a; } /* VerbatimString */
+code > span.ss { color: #049b0a; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code > span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code > span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="play_files/reveal.js-3.3.0/css/theme/black.css" id="theme">
+
+<style type="text/css">
+.reveal section img {
+  background: rgba(255, 255, 255, 0.85);
+}
+</style>
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'play_files/reveal.js-3.3.0/css/print/pdf.css' : 'play_files/reveal.js-3.3.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="play_files/reveal.js-3.3.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Rstudio Knitr 包分享</h1>
+    <h2 class="author">Qi Zou</h2>
+    <h3 class="date">August 16, 2016</h3>
+</section>
+
+<section id="r-" class="slide level2">
+<h1>R 简介</h1>
+<p><a href="https://www.r-project.org/">R-GUI</a></p>
+<p>R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
+<p><a href="https://www.rstudio.com/">RStudio</a></p>
+<p>RStudio是一个高效的R语言脚本编辑器。</p>
+</section>
+<section id="r-" class="slide level2">
+<h1>R 的基本操作</h1>
+<p><img src="graphs/s1.png" alt="" /></p>
+</section>
+<section id="r-" class="slide level2">
+<h1>R 的数据连接</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RMySQL)</code></pre></div>
+<pre><code>## Loading required package: DBI</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">con =<span class="st"> </span><span class="kw">dbConnect</span>(<span class="kw">MySQL</span>(), <span class="dt">user =</span> <span class="st">&quot;work&quot;</span>, <span class="dt">password =</span> <span class="st">&quot;123456&quot;</span>, <span class="dt">dbname =</span> <span class="st">&quot;data_bi&quot;</span>, 
+    <span class="dt">host =</span> <span class="st">&quot;192.168.225.208&quot;</span>)
+myQuery &lt;-<span class="st"> &quot;select * from app_fact_auth_pv_statistics;&quot;</span>
+mydt &lt;-<span class="st"> </span><span class="kw">dbGetQuery</span>(con, myQuery)
+
+<span class="kw">head</span>(mydt)</code></pre></div>
+<pre><code>##   cityname auth_uvcnt auth_yykccnt auth_zxzxcnt auth_400cnt
+## 1     上海      31390           25           26           0
+## 2     北京      52319           30           45           0
+## 3     沈阳      22887           20           28          47
+## 4     上海      28778           23           46           0
+## 5     北京      51125           29           45           0
+## 6     沈阳      19333           19           38          35
+##   auth_dis_phonecnt auth_cvr       dt type
+## 1                25  0.00080 2016/8/2    d
+## 2                30  0.00057 2016/8/2    d
+## 3                66  0.00288 2016/8/2    d
+## 4                23  0.00080 2016/8/3    d
+## 5                29  0.00057 2016/8/3    d
+## 6                53  0.00274 2016/8/3    d</code></pre>
+</section>
+<section id="knitr-" class="slide level2">
+<h1>Knitr 简介</h1>
+<p><strong>knitr</strong> (发音为：nit-ter)是由纯文本和R代码交织在一起的文档文件.</p>
+<p>Knitr和RStudio集成是快速生成报告的最佳组合。简单地说，报告中有文字也有代码，Knitr就是通过markdown的语法在报告中该显示代码的地方显示代码，该显示运行结果（比如图表）的地方显示运行结果，这样整个报告文档就可以直接运行再次生成报告，而不需要把代码单独复制到控制台中执行，然后再把执行结果添加到文档中。</p>
+<p>此包是由R大神谢益辉制作。谢益辉毕业于爱荷华大学统计学博士专业，现就职与Rstudio。</p>
+<p><a href="http://yihui.name/knitr/">Knitr包的作者说明网站</a></p>
+</section>
+<section class="slide level2">
+<h1>操作流程</h1>
+<ul>
+<li class="fragment">打开-用RMARKDOWN打开一个新的文件</li>
+<li class="fragment">撰写-用RMARKDOWN语法书写内容</li>
+<li class="fragment">嵌入-在内容当中嵌入R代码</li>
+<li class="fragment">生成-将R代码生成结果，输出报告(PDF,Word,Html,Slides)</li>
+</ul>
+</section>
+<section id="rmarkdown" class="slide level2">
+<h1>新建Rmarkdown文件</h1>
+<ul>
+<li class="fragment">在menu选项上，点击<strong>File-New File-R Markdown..</strong></li>
+<li class="fragment">在新开启的窗口中选择输出文件的类型</li>
+<li class="fragment">点击OK</li>
+</ul>
+</section>
+<section id="markdown" class="slide level2">
+<h1>使用Markdown语法</h1>
+<ul>
+<li class="fragment">直接在编辑器里书写报告内容</li>
+<li class="fragment">用Markdown语法完善报告的格式</li>
+<li class="fragment"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown语法cheetsheet</a></li>
+</ul>
+</section>
+<section class="slide level2">
+<h1>选择输出类型</h1>
+<ul>
+<li class="fragment"><strong>YAML</strong>是每个RMD文件的表头代码, 它决定了RMD会输出何种文件形式</li>
+</ul>
+<pre><code>---
+title: &quot;Rstudio Knitr 包分享&quot;
+author: &quot;Qi Zou&quot;
+date: &quot;August 16, 2016&quot;
+output: ioslides_presentation
+---</code></pre>
+<ul>
+<li class="fragment">output: html_document—html file (web page)<br />
+</li>
+<li class="fragment">output: pdf_document—pdf document<br />
+</li>
+<li class="fragment">output: word_document—Microsoft Word.docx<br />
+</li>
+<li class="fragment">output: beamer_presentation—beamer slideshow (pdf)<br />
+</li>
+<li class="fragment">output: ioslides_presentation—ioslides slideshow (html)</li>
+</ul>
+</section>
+<section id="r" class="slide level2">
+<h1>嵌入R代码</h1>
+<ul>
+<li class="fragment">用Knitr的语法将R代码嵌入报告</li>
+<li class="fragment">Rstudio会在你生成报告的同时计算出R代码的结果</li>
+</ul>
+</section>
+<section id="r" class="slide level2">
+<h1>R代码的类型</h1>
+<ul>
+<li class="fragment">inline code</li>
+</ul>
+<p>Two plus two equals 4</p>
+<ul>
+<li class="fragment">code chunks</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RMySQL)
+con =<span class="st"> </span><span class="kw">dbConnect</span>(<span class="kw">MySQL</span>(), <span class="dt">user =</span> <span class="st">&quot;work&quot;</span>, <span class="dt">password =</span> <span class="st">&quot;123456&quot;</span>, <span class="dt">dbname =</span> <span class="st">&quot;data_bi&quot;</span>, 
+    <span class="dt">host =</span> <span class="st">&quot;192.168.225.208&quot;</span>)
+myQuery &lt;-<span class="st"> &quot;select * from app_fact_auth_pv_statistics;&quot;</span>
+mydt &lt;-<span class="st"> </span><span class="kw">dbGetQuery</span>(con, myQuery)</code></pre></div>
+</section>
+<section class="slide level2">
+<h1>报告生成</h1>
+<p>报告有两种生成方式</p>
+<ul>
+<li class="fragment">使用代码 rmarkdown::render(“<file path>”)</li>
+<li class="fragment">在Rstudio面板上点击<strong>knit HTML</strong>键</li>
+</ul>
+<p>当你生成报告时，R会</p>
+<ul>
+<li class="fragment">执行每一条嵌入的R代码并将其插入你的报告当中</li>
+<li class="fragment">依据选择类型自动建立一个新的报告文件</li>
+<li class="fragment">自动在可视化面板当中生成预览</li>
+<li class="fragment">在选择的工作路径当中自动存储生成的报告</li>
+</ul>
+</section>
+<section class="slide level2">
+<h1>交互型文档</h1>
+<p>HTML 插件是以浏览器为依托的可交互控件，可使用的HTML插件库如下</p>
+<ul>
+<li class="fragment">leaflet: 交互式地图</li>
+<li class="fragment">dygraphs: 时间序列交互图</li>
+<li class="fragment">Ploty: ggplot交互版</li>
+<li class="fragment">networkD3: 网络图</li>
+<li class="fragment">DT: 交互式表格</li>
+<li class="fragment">threejs: 3D交互图</li>
+</ul>
+</section>
+<section id="leaflet-" class="slide level2">
+<h1>leaflet 交互式地图</h1>
+<iframe width="1000" height="500" frameborder="0" scrolling="no" src="./graphs/leaflet1.html">
+</iframe>
+</section>
+<section id="dygraphs-" class="slide level2">
+<h1>dygraphs 时间序列交互图</h1>
+<iframe width="1000" height="500" frameborder="0" scrolling="no" src="./graphs/dygraphs3.html">
+</iframe>
+</section>
+<section id="ploty-ggplot2-" class="slide level2">
+<h1>Ploty ggplot2 交互版</h1>
+<iframe width="1000" height="500" frameborder="0" scrolling="no" src="./graphs/plotly.html">
+</iframe>
+</section>
+<section id="networkd3-" class="slide level2">
+<h1>networkD3 网络图</h1>
+<iframe width="1000" height="500" frameborder="0" scrolling="no" src="./graphs/network.html">
+</iframe>
+</section>
+<section id="dt-" class="slide level2">
+<h1>DT 交互式表格</h1>
+<iframe width="1000" height="500" frameborder="0" scrolling="yes" src="./graphs/dt1.html">
+</iframe>
+</section>
+<section id="threejs-3d" class="slide level2">
+<h1>threejs 3D交互图</h1>
+<iframe width="1000" height="500" frameborder="0" scrolling="no" src="./graphs/threejs2.html">
+</iframe>
+</section>
+<section><section id="thanks" class="titleslide slide level1"><h1>Thanks!!</h1></section></section>
+    </div>
+  </div>
+
+  <script src="play_files/reveal.js-3.3.0/lib/js/head.min.js"></script>
+  <script src="play_files/reveal.js-3.3.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'play_files/reveal.js-3.3.0/plugin/notes/notes.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
